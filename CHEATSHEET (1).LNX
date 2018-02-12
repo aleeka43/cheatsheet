@@ -1,0 +1,84 @@
+script - takes a log of commands entered
+
+man - manual for looking up different commands
+help - sometimes there isnt a man page for a command, this might have something
+
+apropos - search tool for keywords in commands and their descriptions
+
+pwd - print working directory
+
+ls - list directories/files in the current directory or the directory specified by arg
+
+cd - change directory - no arg for one up, arg for specific location/combination
+
+less - 'a better version of more'
+
+mkdir - make  {directory} - accepts multiple args for multiple directories
+
+rmdir - remove {directory} -
+
+mv - move {filename} (renaming)
+
+cp - copy {filename}
+
+alias - 'rename' a command. Ex. alias ls="ls -al" which would then make ls show all files in the long listing format. Can use \{command} to use the unaliased command. Aliases do not normally persist across sessions, but you can edit .bashrc to create an alias every time the session is started.
+
+unalias - removes the alias from a command.
+
+touch {filename.extension} - creats an empty file with the specified name and extension. Touching a file that exists already will update the meta-data for that file.
+
+rm - remove {filename} - removes the specified file.
+
+find - find {filename} - search the directory you're working in for a specified filename.
+
+wget - wget {url} - downloads file from the URL specified to the current directory.
+
+tar - compression/uncompression
+
+Interrogating files:
+    wc - print newline, word, and byte counts for each file. -c for chars -w for words.
+    
+    file - determine file type of a specified file. Doesn't use the extension, examines the file contents and tells you what it is based on that. For example if you renamed a pdf as a jpg then it will tell you that it is in fact a pdf and not a jpg.
+    
+    stat - display file or file system status for a given file. The change part is updated every time the file is renamed, but the modify part is updated whenever the file's contents are changed.
+
+I/O Manipulation:
+    Standard input : keyboard
+
+    Standard output : terminal
+
+    Standard error : bash - terminal
+
+    echo - displays a line to standard output.
+
+    Redirection :
+        <  : redirect the input to a specified file name. Not that common but a thing we can do. EX: wc -l < test.txt will print the wordcount for the file specified but not the filename because that is not supplied to the command.
+	
+	>  : redirect the output to a specified file name. EX: echo "Hello" > hello.txt will print the "Hello" in a file named hello.txt that will be created. This will not append onto the file, it will overwrite the file.
+	
+	>> : does the same as > except it will append to the end of a file and not overwrite the file completely.
+	
+	2> : redirect the error output to a specified file name. Useful for creating error log files. EX: ls -al {nonexistant directory} 2> error.log will print to the error.log that the directory does not exist. This, like > will overwrite the log file every time.
+
+	2>> : same as 2> but will not overwrite the log file.
+	
+	|  : pipeline command. Forwarding a command's output to another command. for example you can redirect the output of a cat command which is really nasty and unformatted to a less command so that the output of cat is nicely lined up and easy to read. EX: ls /[directory] | wc -w will print the number of words in the output of ls, which is also the number of directories present.
+
+	/dev/null : a location to redirect outputs to which is basically a black hole. Basically hiding an output or error message.
+
+========================================
+
+Linux command options:
+
+ls:
+	-a : shows all hidden files (that begin with a .)
+	-l : long listing format, shows more about contents
+rm:
+	-f : ignore nonexistent files and args, never prompt (dont use)
+	-r : remove directories and their contents recursively (doesnt ask if you're sure... so be sure)
+find {directory} -name:
+     	{directory} :  will search from the specified directory, starting from home
+     	-name {filename.extension} : will show the location if you know the name of a file
+tar:
+	-xzvf {filename} 
+	-czv {directories} -f {compressed filename}.tar.gz
