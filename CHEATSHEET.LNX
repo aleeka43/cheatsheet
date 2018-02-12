@@ -1,0 +1,37 @@
+ls		= director listing
+ls -a or --all 	= includes those that have (.)
+ls -al		= formatted listing with hidden files 
+ls -l 		= gives more information with dates and times
+cd 'dir'	= change directory to 'dir'
+cd 		= chage to home
+pwd		= show current directory
+mkdir 'dir' 	= create directory 'dir'
+rm 'file'	= delete 'file'
+rm -r 'dir' 	= delete directory 'dir'
+rm -f 'file' 	= force remove file
+rm -rf 'dir' 	= force remove director 'dir'*
+cp 'f1' 'f2'	= copy 'file1' to 'file2'
+cp -r 'd1' 'd2' = copy 'dir1' to 'dir2'; creat 'dir2' if nonexistent
+mv 'f1' 'f2'	= rename or move f1 to f2
+   		  if f2 is existing directory, moves f1 to directory f2
+ln -s 'f' 'link'= create symbolic link 'link' to 'file'
+touch 'file' 	= create or update 'file'
+cat > 'file' 	= places standard input intp file
+more 'file' 	= outputs the contents of the 'file'
+head 'file'	= outputs the first 10 lines of 'file'
+tail 'file' 	= outputs the last 10 lines
+
+
+
+alias 'ls'="ls -al" = alias for ls -al
+unalias ls     = undo for previous example
+\ls 	        = overide the aliase
+ls, emacs file .bashrc to save pressets
+
+find -name "name" = finding of the file and path
+     will only search directory your in so best to go to home first
+find .. -name "*.txt"	=  find  parent directory only .txt files
+
+downloading files
+
+wget <url>
